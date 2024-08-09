@@ -1,0 +1,35 @@
+import java.util.Random;
+import java.util.Scanner;
+
+class WordGuessGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String words[]={"JAVA","PROGRAMMING","GUESS","GAME"};
+        Random rand = new Random();
+        String secret=words[rand.nextInt(words.length)];
+        String guess="";
+        int guessCount=3;
+        System.out.println("Welcome to the Word Guessing Game!");
+        System.out.println("Guess the word from the following list : "+String.join(",",words));
+        while(guessCount>0){
+            System.out.println("Enter an guess word : ");
+            guess=scanner.nextLine();
+            if(guess.equalsIgnoreCase(secret)){
+                System.out.println("You win");
+            }
+            else{
+                guessCount--;
+                System.out.println("wrong answer : "+ guess);
+                if(guessCount>0){
+                    System.out.println("Try again! Attempts left : "+guessCount);
+                }
+                else{
+                    System.out.println("You Chances are over. Thw correct secret words is : "+secret);
+                    }
+            }
+        }
+        scanner.close();
+    }
+}
+        
+        
